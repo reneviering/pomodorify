@@ -14,8 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "node-notifier": "^4.2.1"
-},
-"bin": {
+  },
+  "bin": {
     "pomodorify": "index.js"
-}
-}
+  }
+ }
