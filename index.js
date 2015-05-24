@@ -13,10 +13,11 @@ function clearConsole() {
 function stopPomodoro() {
     notifier.notify({
         title:'pomodoro finished',
-        message:'pomodoro finished, click to start new pomodoro!',
+        message:'pomodoro finished, next please!',
         wait: 'true'
     }, function(err, response) {
-        open('readynotification.html');
+		console.log('Pomodori finished...');
+        open(__dirname +'/readynotification.html');
     })
 }
 
