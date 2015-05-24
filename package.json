@@ -18,5 +18,8 @@
   },
   "bin": {
     "pomodorify": "index.js"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0"
   }
 }

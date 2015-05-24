@@ -24,8 +24,6 @@ function stopPomodoro() {
 function startTimer(durationInMinutes) {
 	var totalSeconds = durationInMinutes * 60;
 
-	totalSeconds = 4;
-
 	var intervalId = setInterval(function() {
 		minutes = parseInt(totalSeconds / 60, 10);
 		seconds = parseInt(totalSeconds % 60, 10);
