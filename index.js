@@ -7,7 +7,7 @@ var open = require('open');
 var duration = parseInt(process.argv[process.argv.length -1], 10);
 
 function clearConsole() {
-    util.print("\u001b[2J\u001b[0;0H");
+	util.print("\u001b[2J\u001b[0;0H");
 }
 
 function stopPomodoro() {
@@ -21,24 +21,23 @@ function stopPomodoro() {
 }
 
 function startTimer(durationInMinutes) {
-    var totalSeconds = durationInMinutes * 60;
+	var totalSeconds = durationInMinutes * 60;
 
+	var intervalId = setInterval(function() {
+		minutes = parseInt(totalSeconds / 60, 10);
+		seconds = parseInt(totalSeconds % 60, 10);
 
-    var intervalId = setInterval(function () {
-        minutes = parseInt(totalSeconds / 60, 10);
-        seconds = parseInt(totalSeconds % 60, 10);
+		minutes = minutes < 10 ? "0" + minutes : minutes;
+		seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+		clearConsole();
+		console.log(minutes + ":" + seconds);
 
-        clearConsole();
-        console.log(minutes + ":" + seconds);
-
-        if (--totalSeconds < 0) {
-            stopPomodoro();
-            clearInterval(intervalId);
-        }
-    }, 1000);
+		if (--totalSeconds < 0) {
+			stopPomodoro();
+			clearInterval(intervalId);
+		}
+	}, 1000);
 }
 
 startTimer(duration);
