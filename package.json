@@ -13,9 +13,10 @@
   "author": "René Viering",
   "license": "ISC",
   "dependencies": {
-    "node-notifier": "^4.2.1"
+    "node-notifier": "^4.2.1",
+    "open": "0.0.5"
   },
   "bin": {
     "pomodorify": "index.js"
   }
- }
+}

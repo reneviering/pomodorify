@@ -2,6 +2,9 @@
 
 var notifier = require('node-notifier');
 var util = require('util');
+var open = require('open');
+
+var duration = parseInt(process.argv[process.argv.length -1], 10);
 
 function clearConsole() {
     util.print("\u001b[2J\u001b[0;0H");
@@ -12,11 +15,14 @@ function stopPomodoro() {
         title:'pomodoro finished',
         message:'pomodoro finished, click to start new pomodoro!',
         wait: 'true'
+    }, function(err, response) {
+        open('readynotification.html');
     })
 }
 
 function startTimer(durationInMinutes) {
     var totalSeconds = durationInMinutes * 60;
+
 
     var intervalId = setInterval(function () {
         minutes = parseInt(totalSeconds / 60, 10);
@@ -34,12 +40,5 @@ function startTimer(durationInMinutes) {
         }
     }, 1000);
 }
-
-
-notifier.on('click', function (notifierObject, options) {
-  startTimer(1);
-});
-
-var duration = parseInt(process.argv[process.argv.length -1], 10);
 
 startTimer(duration);
