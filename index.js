@@ -17,12 +17,14 @@ function stopPomodoro() {
         wait: 'true'
     }, function(err, response) {
 		console.log('Pomodori finished...');
-        open(__dirname +'/readynotification.html');
+        open(__dirname +'/notification-page/ready-notification.html');
     })
 }
 
 function startTimer(durationInMinutes) {
 	var totalSeconds = durationInMinutes * 60;
+
+	totalSeconds = 4;
 
 	var intervalId = setInterval(function() {
 		minutes = parseInt(totalSeconds / 60, 10);
